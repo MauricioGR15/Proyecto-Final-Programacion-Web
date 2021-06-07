@@ -42,7 +42,7 @@ export default new Vuex.Store({
             commit("SET_LOADING", true)
             axios.get('http://localhost:3000/categorias')
                 .then(response =>commit("SET_CATEGORIAS", response.data))
-                .finally(() => commit("SET_LOADING", true))
+                .finally(() => commit("SET_LOADING", false))
         },
         eliminarCategoria({commit}, {id, onComplete, onError}){ // eslint-disable-line no-unused-vars
             axios.delete(`http://localhost:3000/categorias/${id}`)
@@ -59,13 +59,13 @@ export default new Vuex.Store({
             commit("SET_LOADING", true)
             axios.get('http://localhost:3000/personas')
                 .then(response =>commit("SET_PERSONAL", response.data))
-                .finally(() => commit("SET_LOADING", true))
+                .finally(() => commit("SET_LOADING",false))
         },
         obtenerUnPersonal({commit}, {id} ) {
             commit("SET_LOADING", true)
             axios.get(`http://localhost:3000/personas/${id}`)
                 .then(response =>commit("SET_PERSONA", response.data))
-                .finally(() => commit("SET_LOADING", true))
+                .finally(() => commit("SET_LOADING", false))
         },
         editarPersonal({commit}, {id, params , onComplete, onError}){ // eslint-disable-line no-unused-vars
             axios.put(`http://localhost:3000/personas/${id}`, params)
@@ -87,13 +87,13 @@ export default new Vuex.Store({
             commit("SET_LOADING", true)
             axios.get('http://localhost:3000/tickets')
                 .then(response =>commit("SET_TICKETS", response.data))
-                .finally(() => commit("SET_LOADING", true))
+                .finally(() => commit("SET_LOADING", false))
         },
         obtenerUnTicket({commit}, {id} ) {
             commit("SET_LOADING", true)
             axios.get(`http://localhost:3000/tickets/${id}`)
                 .then(response =>commit("SET_TICKET", response.data))
-                .finally(() => commit("SET_LOADING", true))
+                .finally(() => commit("SET_LOADING",false))
         },
         editarTickets({commit}, {id, params , onComplete, onError}){ // eslint-disable-line no-unused-vars
             axios.put(`http://localhost:3000/tickets/${id}`, params)

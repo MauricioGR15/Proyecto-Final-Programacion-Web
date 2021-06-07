@@ -19,8 +19,21 @@
         :maxlength="100"
         class="mb-2"
       />
-
-      <label class="form-label"> Prioridad: </label>
+      <label class="form-label">Categoría: </label>
+      <b-form-select
+        v-model="tickets.categoria"
+        :options="categorias"
+        text-field="nombre"
+        value-field="id"
+      ></b-form-select>
+      <label class="form-label">Reportero: </label>
+      <b-form-select
+        v-model="tickets.reportero"
+        :options="personal"
+        text-field="nombre"
+        value-field="id"
+      ></b-form-select>
+      <label class="form-label">Prioridad: </label>
       <b-form-select
         v-model="tickets.prioridad"
         :options="pri"
@@ -46,13 +59,13 @@ export default {
       tickets: {
         nombre: "",
         descripcion: "",
-        prioridad: "1",
-        reportero: "1",
-        categoria: "9",
+        prioridad: "",
+        reportero: "",
+        categoria: "",
         estatus: "ABT",
       },
       pri: [
-        { value: "1" , text: "Baja" },
+        { value: "1", text: "Baja" },
         { value: "2", text: "Media" },
         { value: "3", text: "Alta" },
       ],
@@ -60,8 +73,8 @@ export default {
     };
   },
   computed: {
-      ...mapState(["personal", "categorias" ,"loading"]),
-      validarNombre() {
+    ...mapState(["personal", "categorias", "loading"]),
+    validarNombre() {
       return (
         this.tickets.nombre !== undefined && this.tickets.nombre.trim() !== ""
       );
@@ -95,7 +108,7 @@ export default {
       }
     },
   },
-  mounted() {
+  created() {
     this.obtenerPersonal();
     this.obtenerCategorias();
   },
