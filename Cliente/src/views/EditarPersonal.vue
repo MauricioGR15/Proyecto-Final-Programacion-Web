@@ -3,18 +3,17 @@
     <h2 class="my-3"> Editar Personal ✍ </h2>
     <b-form @submit.prevent="guardarPersonal()" v-if="persona">
       <Input
-        v-model="personal.nombre"
+        v-model="persona.data[0].nombre"
         id="nombre"
         titulo="Nombre:"
         placeholder="Ingresa el Nombre"
-        :value="persona.nombre"
         :maxlength="50"
         :error="erroresValidacion && !validarNombre"
         mensajeError="El nombre es obligatorio"
         class="mb-2"
       />
       <Input
-        v-model="personal.apellidos"
+        v-model="persona.data[0].apellidos"
         id="apellidos"
         titulo="Apellidos:"
         placeholder="Ingresa los apellidos"
@@ -24,7 +23,7 @@
         class="mb-2"
       />
       <Input
-        v-model="personal.telefono"
+        v-model="persona.data[0].telefono"
         id="telefono"
         titulo="Teléfono:"
         placeholder="Ingresa el telefono"
@@ -32,7 +31,7 @@
         class="mb-2"
       />
       <Input
-        v-model="personal.direccion"
+        v-model="persona.data[0].direccion"
         id="direccion"
         titulo="Dirección:"
         placeholder="Ingresa la dirección"
@@ -85,8 +84,6 @@ export default {
     guardarPersonal() {
       if (this.validarNombre && this.validarApellidos) {
         this.erroresValidacion = false;
-        console.log(this.personal); 
-        console.log(this.$route.params.id);
         //Guardar
          this.editarPersonal({
           id: this.$route.params.id,
