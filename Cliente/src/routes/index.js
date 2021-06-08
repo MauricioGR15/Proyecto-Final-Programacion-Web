@@ -36,6 +36,11 @@ const routes = [
       name: 'EditarEstatus',
       component: () => import('../views/EditarEstatus.vue')
     },
+    {
+      path: '/editarTicket/:id',
+      name: 'EditarTicket',
+      component: () => import('../views/EditarTicket.vue')
+    },
   ]
 
 const router = new VueRouter({

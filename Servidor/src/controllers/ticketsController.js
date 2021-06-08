@@ -75,24 +75,7 @@ function create(req, res) {
 function update(req, res) {
     if (connection) {
         const { id } = req.params;
-        const ticket = req.body;
-    
-        //Validaciones
-        if (ticket.nombre && ticket.nombre.length > 50)
-          return res.status(400).send({
-            error: true,
-            mensaje: "La longitud máxima del nombre es de 50",
-          });
-        if (ticket.apellidos && ticket.apellidos.length > 80)
-          return res.status(400).send({
-            error: true,
-            mensaje: "La longitud máxima del apellido es de 80",
-        });
-        if (ticket.telefono && ticket.telefono.length > 10)
-          return res.status(400).send({
-            error: true,
-            mensaje: "La longitud máxima del telefono es de 10",
-        });  
+        const ticket = req.body; 
     
         let sql = `UPDATE tickets set ? where id = ${connection.escape(id)}`;
         connection.query(sql, [ticket], (err, resp) => {

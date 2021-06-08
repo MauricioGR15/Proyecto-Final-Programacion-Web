@@ -93,6 +93,14 @@ export default {
         },
       });
     },
+    onEditar(item){
+     this.$router.push({
+        name: "EditarTicket",
+        params: {
+          id: item.item.id,
+        },
+      });
+    },
   },
   mounted() {
     this.obtenerTickets();

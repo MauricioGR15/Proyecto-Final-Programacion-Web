@@ -10,6 +10,7 @@
         :options="opt"
         class="mt-3 mx-4"
       ></b-form-select>
+      <b-button class="mx-2 btn- btn-danger" to="/tickets">Cancelar</b-button>
       <b-button type="submit" class="m-4 btn btn-success">Editar</b-button>
     </b-form>
   </div>
@@ -50,7 +51,7 @@ export default {
           console.log(response.data);
           this.$notify({
             type: "success",
-            title: response.data.mensaje,
+            title: "Se realiza el cambio con éxito",
           });
           this.$router.push({
             path: "/tickets",
