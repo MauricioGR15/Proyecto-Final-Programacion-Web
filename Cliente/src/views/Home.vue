@@ -36,7 +36,7 @@ export default {
   methods: {
     ...mapActions(["obtenerTickets", "obtenerCategorias"]),
     obtenerEstatus(estatus) {
-      if (estatus === "FIN") return "border-danger";
+      if (estatus === "ABT") return "border-danger";
       if (estatus === "ESP") return "border-success";
       if (estatus === "FIN") return "border-secondary";
     },
