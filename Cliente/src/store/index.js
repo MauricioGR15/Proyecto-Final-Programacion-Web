@@ -100,7 +100,12 @@ export default new Vuex.Store({
             .then(onComplete)
             .catch(onError)
         },
-        //Falta el de editar status
+        actualizarEstatus({commit}, {id, params , onComplete, onError}){ // eslint-disable-line no-unused-vars
+            axios.put(`http://localhost:3000/tickets/estatus/${id}`, params)
+            .then(onComplete)
+            .catch(onError)
+        },
+        //Falta el de editar status 
         eliminarTickets({commit}, {id, onComplete, onError}){ // eslint-disable-line no-unused-vars
             axios.delete(`http://localhost:3000/tickets/${id}`)
             .then(onComplete)

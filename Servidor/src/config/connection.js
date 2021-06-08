@@ -4,7 +4,7 @@ const objConnection = {
     "host": "localhost",
     "port": "3306",
     "user": "root",
-    "password": "password",
+    "password": "Hr123456",
     "database": "sistema_tickets"
 }
 

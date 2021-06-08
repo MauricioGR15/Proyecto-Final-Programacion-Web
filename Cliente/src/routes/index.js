@@ -31,6 +31,11 @@ const routes = [
       name: 'EditarPersonal',
       component: () => import('../views/EditarPersonal.vue')
     },
+    {
+      path: '/editarEstatus/:id',
+      name: 'EditarEstatus',
+      component: () => import('../views/EditarEstatus.vue')
+    },
   ]
 
 const router = new VueRouter({
